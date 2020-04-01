@@ -1,4 +1,4 @@
-## a IOC container for php implement as c extension.
+## a IOC container for php that implement as c extension.
 
 This is a extension which implements Dependency Injection, it's itself a container and it  implements the 
 
