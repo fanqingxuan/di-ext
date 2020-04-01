@@ -410,13 +410,13 @@ $di->get('home')->say();
 
 ### Service Providers
 
-Using the Tools\Di\ServiceProviderInterface  you now register services by context. You can move all your $di->set()` calls to classes as follows.
+Using the Tools\Di\ServiceProviderInterface  you now register services by context. You can move all your `$di->set()` calls to classes as follows. **Notice return void for the register function**.
 ```php
 use Tools\Di\DiInterface;
 use Tools\Di\ServiceProviderInterface;
 class SessionServiceProvider implements ServiceProviderInterface 
 {
-    public function register(DiInterface $di) 
+    public function register(DiInterface $di):void
     {
         $di->set(
         	'session',
