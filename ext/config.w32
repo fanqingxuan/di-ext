@@ -1,0 +1,22 @@
+ARG_ENABLE("tools", "enable tools", "no");
+
+if (PHP_TOOLS != "no") {
+  EXTENSION("tools", "tools.c", null, "-I"+configure_module_dirname);
+  ADD_SOURCES(configure_module_dirname + "/kernel", "main.c memory.c exception.c debug.c backtrace.c object.c array.c string.c fcall.c require.c file.c operators.c math.c concat.c variables.c filter.c iterator.c exit.c time.c", "tools");
+  /* PCRE is always included on WIN32 */
+  AC_DEFINE("ZEPHIR_USE_PHP_PCRE", 1, "Whether PHP pcre extension is present at compile time");
+  if (PHP_JSON != "no") {
+    ADD_EXTENSION_DEP("tools", "json");
+    AC_DEFINE("ZEPHIR_USE_PHP_JSON", 1, "Whether PHP json extension is present at compile time");
+  }
+  
+  ADD_SOURCES(configure_module_dirname + "/tools", "collection.zep.c config.zep.c exception.zep.c di.zep.c", "tools");
+	ADD_SOURCES(configure_module_dirname + "/tools/di", "injectionawareinterface.zep.c diinterface.zep.c exception.zep.c serviceinterface.zep.c abstractinjectionaware.zep.c injectable.zep.c service.zep.c serviceproviderinterface.zep.c", "tools");
+	ADD_SOURCES(configure_module_dirname + "/tools/config/adapter", "ini.zep.c json.zep.c php.zep.c", "tools");
+	ADD_SOURCES(configure_module_dirname + "/tools/di/exception", "serviceresolutionexception.zep.c", "tools");
+	ADD_SOURCES(configure_module_dirname + "/tools/di/service", "builder.zep.c", "tools");
+	ADD_SOURCES(configure_module_dirname + "/tools/helper", "json.zep.c", "tools");
+  ADD_FLAG("CFLAGS_TOOLS", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
+  ADD_FLAG("CFLAGS", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
+  ADD_FLAG("LDFLAGS", "/LTCG");
+}
