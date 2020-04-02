@@ -1,5 +1,5 @@
 <?php
-use Tools\Di;
+use JsonTools\Di;
 
 require_once 'SessionServiceProvider.php';
 require_once('ConfigServiceProvider.php');

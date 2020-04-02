@@ -13,13 +13,15 @@ cd XXX/ext
 phpize
 ./configure --with-php-config=XXX/php-config
 make && make install
-add "extension=tools" in your php.ini file
+add "extension=jsontools" in your php.ini file
 ```
+
+If you want install it as php code that is you don't need install php-extension, Please install it from **[di](https://github.com/fanqingxuan/di)**. Both of them have the same usage. Please enjoy it.
 
 ### Basic Usage 
 
 ```php
-use Tools\Di;
+use JsonTools\Di;
 
 class Test
 {
@@ -62,8 +64,8 @@ like you can see,there are serveral ways to register services as the follow list
 You can pass additonal parameters to closure function.
 
 ```php
-use Tools\Di;
-use Tools\Config;
+use JsonTools\Di;
+use JsonTools\Config;
 $di = new Di;
 $di->set('config',new Config(
     [
@@ -379,11 +381,11 @@ $test->resolve();
 
 ### Automatic Inject the DI Container into the service
 
-DI Container is used for inject other service into it. but sometimes the service itself need the the other instance from the container. If a class or component requires the DI itself to locate services, the DI can automatically inject itself to the instances it creates, to do this, you need to extends the Tools\Di\AbstractInjectionAware class in your classes: 
+DI Container is used for inject other service into it. but sometimes the service itself need the the other instance from the container. If a class or component requires the DI itself to locate services, the DI can automatically inject itself to the instances it creates, to do this, you need to extends the JsonTools\Di\AbstractInjectionAware class in your classes: 
 
 ```php
-use Tools\Di;
-use Tools\Di\AbstractInjectionAware;
+use JsonTools\Di;
+use JsonTools\Di\AbstractInjectionAware;
 
 class Mysql
 {
@@ -410,10 +412,10 @@ $di->get('home')->say();
 
 ### Service Providers
 
-Using the Tools\Di\ServiceProviderInterface  you now register services by context. You can move all your `$di->set()` calls to classes as follows. **Notice return void for the register function**.
+Using the JsonTools\Di\ServiceProviderInterface  you now register services by context. You can move all your `$di->set()` calls to classes as follows. **Notice return void for the register function**.
 ```php
-use Tools\Di\DiInterface;
-use Tools\Di\ServiceProviderInterface;
+use JsonTools\Di\DiInterface;
+use JsonTools\Di\ServiceProviderInterface;
 class SessionServiceProvider implements ServiceProviderInterface 
 {
     public function register(DiInterface $di):void

@@ -1,6 +1,6 @@
 <?php
-use Tools\Di;
-use Tools\Config;
+use JsonTools\Di;
+use JsonTools\Config;
 
 class Test
 {
@@ -9,4 +9,4 @@ class Test
 $di = new Di;
 $di->loadFromPhp('service.php');
 
-var_dump($di);
+var_dump($di->testA);

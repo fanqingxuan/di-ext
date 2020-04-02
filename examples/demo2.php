@@ -1,6 +1,6 @@
 <?php
-use Tools\Di;
-use Tools\Config;
+use JsonTools\Di;
+use JsonTools\Config;
 
 $di = new Di;
 $di->set('config', new Config(

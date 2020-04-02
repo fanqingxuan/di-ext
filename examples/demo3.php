@@ -1,6 +1,5 @@
 <?php
-
-use Tools\Di;
+use JsonTools\Di;
 
 class UserDao
 {
@@ -10,12 +9,12 @@ class UserService
 {
     protected $userDao;
     protected $userType;
-    
+
     public function setUserDao(UserDao $userDao)
     {
         $this->userDao = $userDao;
     }
-    
+
     public function setUserType($userType)
     {
         $this->userType = $userType;

@@ -1,7 +1,6 @@
 <?php
-
-use Tools\Di;
-use Tools\Di\AbstractInjectionAware;
+use JsonTools\Di;
+use JsonTools\Di\AbstractInjectionAware;
 
 class Mysql
 {

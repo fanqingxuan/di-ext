@@ -1,6 +1,5 @@
 <?php
-
-use Tools\Di;
+use JsonTools\Di;
 
 class UserDao
 {

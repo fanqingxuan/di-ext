@@ -1,5 +1,5 @@
 <?php
-use Tools\Di;
+use JsonTools\Di;
 
 $di = new Di;
 

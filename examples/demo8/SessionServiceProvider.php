@@ -1,6 +1,6 @@
 <?php
-use Tools\Di\DiInterface;
-use Tools\Di\ServiceProviderInterface;
+use JsonTools\Di\DiInterface;
+use JsonTools\Di\ServiceProviderInterface;
 
 class SessionServiceProvider implements ServiceProviderInterface
 {

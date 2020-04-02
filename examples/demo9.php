@@ -1,6 +1,5 @@
 <?php
-//单例模式
-use Tools\Di;
+use JsonTools\Di;
 
 class Test
 {
