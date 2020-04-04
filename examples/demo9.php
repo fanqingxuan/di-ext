@@ -1,5 +1,5 @@
 <?php
-use JsonTools\Di;
+use JsonDi\Di;
 
 class Test
 {

@@ -1,6 +1,6 @@
 <?php
-use JsonTools\Di;
-use JsonTools\Config;
+use JsonDi\Di;
+use JsonDi\Config;
 
 class Test
 {
